@@ -73,6 +73,14 @@ publishing {
                 password =  properties["sonatypePassword"] as String?
             }
         }
+        maven {
+            name = "GitHub Packages"
+            url = uri("https://maven.pkg.github.com/gal-digital-gmbh/kmm-preferences")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
     publications.withType<MavenPublication> {
         if (name == "jvm") {
