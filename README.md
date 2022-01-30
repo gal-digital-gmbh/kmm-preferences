@@ -1,4 +1,5 @@
-![Maven Central](https://img.shields.io/maven-central/v/de.gal-digital/kmm-preferences?style=flat-square)
+[![Download](https://img.shields.io/maven-central/v/de.gal-digital/kmm-preferences) ](https://repo1.maven.org/maven2/de/gal-digital/kmm-preferences/)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.6.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
 ![badge][badge-android]
 ![badge][badge-ios]
 

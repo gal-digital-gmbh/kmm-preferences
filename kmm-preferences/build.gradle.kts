@@ -1,3 +1,4 @@
+import Version.kotlin
 
 plugins {
     kotlin("multiplatform")
@@ -8,7 +9,7 @@ plugins {
 }
 
 group = "de.gal-digital"
-version = "0.0.1"
+version = Version.preferences
 
 repositories {
     gradlePluginPortal()
