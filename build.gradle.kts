@@ -9,7 +9,7 @@ buildscript {
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}")
         classpath("com.android.tools.build:gradle:4.2.2")
-        classpath("org.jetbrains.dokka:dokka-gradle-plugin:1.6.21")
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:1.7.10")
     }
 }
 
