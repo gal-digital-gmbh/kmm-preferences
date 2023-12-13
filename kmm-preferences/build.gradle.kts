@@ -75,7 +75,7 @@ publishing {
             }
         }
         maven {
-            name = "GitHub-Packages"
+            name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/gal-digital-gmbh/kmm-preferences")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
