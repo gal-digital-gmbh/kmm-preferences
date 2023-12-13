@@ -31,7 +31,8 @@ class SerializableProperty<T : Any>(
     override fun setValue(thisRef: Any?, property: KProperty<*>, value: T?) {
         try {
             if (value == null) {
-                return sharedPreferences.setString(name, null)
+                sharedPreferences.setString(name, null)
+                return listener.invoke(value)
             }
             val serialized = jsonSerializer.encodeToString(
                 serializer = type.serializer(),
