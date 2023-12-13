@@ -3,6 +3,8 @@
 ![badge][badge-android]
 ![badge][badge-ios]
 
+![kotlin-multiplatform-mobile](./.readme/heroshot.png)
+
 # SharedPreference in Kotlin Multiplatform Mobile (KMM)
 
 This is a Kotlin MultiPlatform library that provides access to the shared preferences on iOS & Android.
