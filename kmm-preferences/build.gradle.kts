@@ -1,5 +1,3 @@
-import Version.kotlin
-
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -14,34 +12,41 @@ version = Version.preferences
 repositories {
     gradlePluginPortal()
     google()
-    jcenter()
     mavenCentral()
 }
 
 kotlin {
-    android {
+    jvmToolchain(17)
+    applyDefaultHierarchyTemplate()
+
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
         publishLibraryVariants("debug", "release")
     }
-    ios()
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
-        val commonMain by getting  {
+        val commonMain by getting {
             dependencies {
                 implementation(Dependencies.Serialization.json)
             }
         }
-
-        val androidMain by getting
-
-        val iosMain by getting
+        // androidMain & iosMain werden durch androidTarget()/applyDefaultHierarchyTemplate()
+        // automatisch konfiguriert; iosMain gruppiert iosX64Main, iosArm64Main und iosSimulatorArm64Main.
     }
 }
 android {
-    compileSdkVersion(Version.Android.targetSdk)
+    namespace = "de.galdigital.preferences"
+    compileSdk = Version.Android.targetSdk
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(Version.Android.minSdk)
-        targetSdkVersion(Version.Android.targetSdk)
+        minSdk = Version.Android.minSdk
     }
     buildTypes {
         getByName("release") {
@@ -51,8 +56,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
