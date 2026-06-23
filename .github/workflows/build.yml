@@ -34,4 +34,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build
-        run: ./gradlew build --stacktrace
+        # sonatypeUrl is required to evaluate the publishing block in
+        # kmm-preferences/build.gradle.kts even when not publishing.
+        run: ./gradlew build -PsonatypeUrl=https://s01.oss.sonatype.org --stacktrace
